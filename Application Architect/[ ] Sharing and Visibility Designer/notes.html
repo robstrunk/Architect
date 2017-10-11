@@ -9,15 +9,37 @@
 <body>
     <div class="container">
         <h1>Sharing and Visibility Designer Notes</h1>
-        <hr/>
-        <h2>A Guide to Sharing Architecture</h2>
-        <br/>
+        <hr style="border: 0;border-top: 3px double #8c8c8c;" />
         <h3>Key Terms, Phrases, and Ideas</h3>
         <ol>
             <li>Data access begins with a user.</li>
             <li>Record ownership and full access are synonymous and interchangeable and provide the user with the highest level of access to a record.</li>
             <li>Every record must be owned by a single user or a queue.</li>
+            <li>Users higher in a hierarchy (role or territory) inherit the same data access as their subordinates for standard objects.</li>
+            <li>Organization-wide defaults are the <b>only</b> way to restrict user access to a record.</li>
         </ol>
+        <h3>Best Practices</h3>
+        <ol>
+            <li>If a single user owns more than 10,000 records
+                <ul>
+                    <li>The user record of the owner should not hold a role in the role hierarchy.</li>
+                    <li>If the owner's user record must hold a role, the role should be at the top of the hierarchy in its own branch of the role hierarchy.</li>
+                </ul>
+            </li>
+            <li>Keep the number of non-portal roles to 25,000 and the number of portal roles to 100,000</li>
+            <li>Keep the role hierarchy to no more than 10 levels of branches in the hierarchy.</li>
+        </ol>
+        <h3>Questions / Clarity Needed</h3>
+        <ol>
+            <li>A Guide to Sharing Architecture
+                <ul>
+                    <li>On page 3 under the Role Hierarchy section, paragraph 6 mentions Overlays. What is an overlay?</li>
+                </ul>
+            </li>
+        </ol>
+        <br />
+        <h2><a href="files/sharing_architecture.pdf" download>A Guide to Sharing Architecture</a></h2>
+        <hr/>
         <h3>Data Access Mechanisms</h3>
         <ol>
             <li>License Types
@@ -56,17 +78,21 @@
             </li>
             <li>Record Ownership and Queues
                 <ul>
-                    <li></li>
+                    <li>Every record must be owned by a single user or a queue.</li>
+                    <li>The owner has access to the record, based on the Object Settings for the owner’s profile.</li>
+                    <li>Queues help you prioritize, distribute, and assign records to teams who share workloads.</li>
                 </ul>
             </li>
             <li>Organization-Wide Defaults
                 <ul>
-                    <li></li>
+                    <li>Organization-wide sharing settings specify the default level of access users have to each others’ records.</li>
+                    <li>You use organization-wide sharing settings to lock down your data to the most restrictive level, and then use the other record-level security and sharing tools to selectively give access to other users.</li>
                 </ul>
             </li>
             <li>Role Hierarchy
                 <ul>
-                    <li></li>
+                    <li>The role hierarchy ensures that managers always have access to the same data as their employees, regardless of the organization-wide default settings.</li>
+                    <li>Role hierarchies don't have to match your organization chart exactly. Instead, each role in the hierarchy should represent a level of data access that a user or group of users needs.</li>
                 </ul>
             </li>
             <li>Public Groups
