@@ -1,125 +1,121 @@
 <!DOCTYPE html>
 <html lang="en_US">
+
 <head>
-	<link rel="stylesheet" href="../../utilities/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="../../utilities/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-<div class="container">
-<h1>Sharing and Visibility Designer Notes</h1>
-<hr/>
-<h2>A Guide to Sharing Architecture</h2>
-<br/>
-<h3>Key Terms, Phrases, and Ideas</h3>
-	<ol>
-		<li>Data access begins with a user.</li>
-		<li>Record ownership and full access are synonymous and interchangeable and provide the user with the highest level of access to a record.</li>
-		<li>Every record must be owned by a single user or a queue.</li>
-	</ol>
-
-<h3>Data Access Mechanisms</h3>
-
-<ol>
-	<li>License Types 
-		<ul>
-			<li>Full Sharing Model Usage Users/Licenses 
-				<ul>
-					<li>Allows access to all sharing components regardless of edition</li>
-				</ul>
-			</li>
-			<li>High Volume Portal Users 
-				<ul>
-					<li>Do not have access to standard sharing model.</li>
-					<li>Has a completely different sharing model based on foreign key match between portal user and the data on the associated account and contact lookups.</li>
-					<li>HVPU license is only used for the Customer Portal and not the Partner Portal.</li>
-				</ul>
-			</li>
-			<li>Chatter Free Users
-				<ul>
-					<li>Do not have access to standard sharing model.</li>
-					<li>Chatter Free is a collaboration-only license with the following features: Chatter, Profile, People, Groups, Files, Chatter Desktop, and limited Salesforce1 app access.</li>
-					<li>Does NOT have access to any salesforce records, thus, no need for sharing model.</li>
-				</ul>
-			</li>
-		</ul>
-	</li>
-</ol>
-
-<h3>Components</h3>
-
-<img src="images/sharing overview.png" />
-
-<ol>
-	<li>Profiles and Permission Sets
-		<ul>
-			<li>Object level security</li>
-			<li>CRUD</li>
-			<li>FLS</li>
-		</ul>
-	</li>
-	<li>Record Ownership and Queues 
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-	<li>Organization-Wide Defaults 
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-	<li>Role Hierarchy 
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-	<li>Public Groups 
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-	<li>Ownership-based Sharing Rules 
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-	<li>Criteria-based Sharing Rules
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-	<li>Manual Sharing
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-	<li>Teams
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-	<li>Territory Hierarchy
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-	<li>Account Territory Sharing Rules
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-	<li>Programmatic Sharing
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-	<li>Implicit Sharing
-		<ul>
-			<li></li>
-		</ul>
-	</li>
-</ol>
-
-
-	</div>
+    <div class="container">
+        <h1>Sharing and Visibility Designer Notes</h1>
+        <hr/>
+        <h2>A Guide to Sharing Architecture</h2>
+        <br/>
+        <h3>Key Terms, Phrases, and Ideas</h3>
+        <ol>
+            <li>Data access begins with a user.</li>
+            <li>Record ownership and full access are synonymous and interchangeable and provide the user with the highest level of access to a record.</li>
+            <li>Every record must be owned by a single user or a queue.</li>
+        </ol>
+        <h3>Data Access Mechanisms</h3>
+        <ol>
+            <li>License Types
+                <ul>
+                    <li>Full Sharing Model Usage Users/Licenses
+                        <ul>
+                            <li>Allows access to all sharing components regardless of edition</li>
+                        </ul>
+                    </li>
+                    <li>High Volume Portal Users
+                        <ul>
+                            <li>Do not have access to standard sharing model.</li>
+                            <li>Has a completely different sharing model based on foreign key match between portal user and the data on the associated account and contact lookups.</li>
+                            <li>HVPU license is only used for the Customer Portal and not the Partner Portal.</li>
+                        </ul>
+                    </li>
+                    <li>Chatter Free Users
+                        <ul>
+                            <li>Do not have access to standard sharing model.</li>
+                            <li>Chatter Free is a collaboration-only license with the following features: Chatter, Profile, People, Groups, Files, Chatter Desktop, and limited Salesforce1 app access.</li>
+                            <li>Does NOT have access to any salesforce records, thus, no need for sharing model.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+        <h3>Components</h3>
+        <img src="images/sharing overview.png" />
+        <ol>
+            <li>Profiles and Permission Sets
+                <ul>
+                    <li>Object level security</li>
+                    <li>CRUD</li>
+                    <li>FLS</li>
+                </ul>
+            </li>
+            <li>Record Ownership and Queues
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Organization-Wide Defaults
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Role Hierarchy
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Public Groups
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Ownership-based Sharing Rules
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Criteria-based Sharing Rules
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Manual Sharing
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Teams
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Territory Hierarchy
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Account Territory Sharing Rules
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Programmatic Sharing
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li>Implicit Sharing
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+        </ol>
+    </div>
 </body>
+
 </html>
