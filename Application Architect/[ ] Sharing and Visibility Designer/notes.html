@@ -8,139 +8,335 @@
 
 <body>
     <div class="container">
-        <h1>Sharing and Visibility Designer Notes</h1>
-        <hr style="border: 0;border-top: 3px double #8c8c8c;" />
-        <h3>Key Terms, Phrases, and Ideas</h3>
-        <ol>
-            <li>Data access begins with a user.</li>
-            <li>Record ownership and full access are synonymous and interchangeable and provide the user with the highest level of access to a record.</li>
-            <li>Every record must be owned by a single user or a queue.</li>
-            <li>Users higher in a hierarchy (role or territory) inherit the same data access as their subordinates for standard objects.</li>
-            <li>Organization-wide defaults are the <b>only</b> way to restrict user access to a record.</li>
-        </ol>
-        <h3>Best Practices</h3>
-        <ol>
-            <li>If a single user owns more than 10,000 records
-                <ul>
-                    <li>The user record of the owner should not hold a role in the role hierarchy.</li>
-                    <li>If the owner's user record must hold a role, the role should be at the top of the hierarchy in its own branch of the role hierarchy.</li>
-                </ul>
-            </li>
-            <li>Keep the number of non-portal roles to 25,000 and the number of portal roles to 100,000</li>
-            <li>Keep the role hierarchy to no more than 10 levels of branches in the hierarchy.</li>
-        </ol>
-        <h3>Questions / Clarity Needed</h3>
-        <ol>
-            <li>A Guide to Sharing Architecture
-                <ul>
-                    <li>On page 3 under the Role Hierarchy section, paragraph 6 mentions Overlays. What is an overlay?</li>
-                </ul>
-            </li>
-        </ol>
-        <br />
-        <h2><a href="files/sharing_architecture.pdf" download>A Guide to Sharing Architecture</a></h2>
-        <hr/>
-        <h3>Data Access Mechanisms</h3>
-        <ol>
-            <li>License Types
-                <ul>
-                    <li>Full Sharing Model Usage Users/Licenses
+        <div class="card ">
+            <div class="card-block bg-faded">
+                <h1 class="card-title">Sharing and Visibility Designer Notes</h1>
+                <hr style="border: 0;border-top: 3px double #8c8c8c;" />
+                <h3>Key Terms, Phrases, and Ideas</h3>
+                <ol>
+                    <li>
+                        Data access begins with a user.
+                    </li>
+                    <li>
+                        Record ownership and full access are synonymous and interchangeable and provide the user with the highest level of access to a record.
+                    </li>
+                    <li>
+                        Every record must be owned by a single user or a queue.
+                    </li>
+                    <li>
+                        Users higher in a hierarchy (role or territory) inherit the same data access as their subordinates for standard objects.
+                    </li>
+                    <li>
+                        Organization-wide defaults are the <b>only</b> way to restrict user access to a record.
+                    </li>
+                    <li>
+                        Contact ownership-based sharing rules don't apply to private contacts.
+                    </li>
+                </ol>
+                <h3>Best Practices</h3>
+                <ol>
+                    <li>
+                        If a single user owns more than 10,000 records
                         <ul>
-                            <li>Allows access to all sharing components regardless of edition</li>
+                            <li>
+                                The user record of the owner should not hold a role in the role hierarchy.
+                            </li>
+                            <li>
+                                If the owner's user record must hold a role, the role should be at the top of the hierarchy in its own branch of the role hierarchy.
+                            </li>
                         </ul>
                     </li>
-                    <li>High Volume Portal Users
+                    <li>
+                        Keep the number of non-portal roles to 25,000 and the number of portal roles to 100,000
+                    </li>
+                    <li>
+                        Keep the role hierarchy to no more than 10 levels of branches in the hierarchy.
+                    </li>
+                    <li>
+                        Keep the total number of public groups for an organization to 100,000.
+                    </li>
+                    <li>
+                        Don't nest groups more than five levels.
+                    </li>
+                    <li>
+                        Keep the number of ownership-based sharing rules per object to 1,000.
+                    </li>
+                    <li>
+                        Keep the number of criteria-sharing rules per object to 50; however, this can be increased by Salesforce.
+                    </li>
+                </ol>
+                <h3>Questions / Clarity Needed</h3>
+                <ol>
+                    <li>
+                        A Guide to Sharing Architecture
                         <ul>
-                            <li>Do not have access to standard sharing model.</li>
-                            <li>Has a completely different sharing model based on foreign key match between portal user and the data on the associated account and contact lookups.</li>
-                            <li>HVPU license is only used for the Customer Portal and not the Partner Portal.</li>
+                            <li>
+                                <b>Q:</b> On page 3 under the Role Hierarchy section, paragraph 6 mentions Overlays. What is an overlay?
+                                <br/>
+                                <b>A:</b> ex. A person in Service needs to be able to see some Sales data, but they live in different branches of the hierarchy.
+                            </li>
                         </ul>
                     </li>
-                    <li>Chatter Free Users
+                </ol>
+                <br />
+                <h2><a href="files/sharing_architecture.pdf" download>A Guide to Sharing Architecture</a></h2>
+                <hr/>
+                <h3>Data Access Mechanisms</h3>
+                <ol>
+                    <li>
+                        License Types
                         <ul>
-                            <li>Do not have access to standard sharing model.</li>
-                            <li>Chatter Free is a collaboration-only license with the following features: Chatter, Profile, People, Groups, Files, Chatter Desktop, and limited Salesforce1 app access.</li>
-                            <li>Does NOT have access to any salesforce records, thus, no need for sharing model.</li>
+                            <li>
+                                Full Sharing Model Usage Users/Licenses
+                                <ul>
+                                    <li>
+                                        Allows access to all sharing components regardless of edition.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                High Volume Portal Users
+                                <ul>
+                                    <li>
+                                        Do not have access to standard sharing model.
+                                    </li>
+                                    <li>
+                                        Has a completely different sharing model based on foreign key match between portal user and the data on the associated account and contact lookups.
+                                    </li>
+                                    <li>
+                                        HVPU license is only used for the Customer Portal and not the Partner Portal.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Chatter Free Users
+                                <ul>
+                                    <li>
+                                        Do not have access to standard sharing model.
+                                    </li>
+                                    <li>
+                                        Chatter Free is a collaboration-only license with the following features: Chatter, Profile, People, Groups, Files, Chatter Desktop, and limited Salesforce1 app access.
+                                    </li>
+                                    <li>
+                                        Does NOT have access to any salesforce records, thus, no need for sharing model.
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-                </ul>
-            </li>
-        </ol>
-        <h3>Components</h3>
-        <img src="images/sharing overview.png" />
-        <ol>
-            <li>Profiles and Permission Sets
-                <ul>
-                    <li>Object level security</li>
-                    <li>CRUD</li>
-                    <li>FLS</li>
-                </ul>
-            </li>
-            <li>Record Ownership and Queues
-                <ul>
-                    <li>Every record must be owned by a single user or a queue.</li>
-                    <li>The owner has access to the record, based on the Object Settings for the owner’s profile.</li>
-                    <li>Queues help you prioritize, distribute, and assign records to teams who share workloads.</li>
-                </ul>
-            </li>
-            <li>Organization-Wide Defaults
-                <ul>
-                    <li>Organization-wide sharing settings specify the default level of access users have to each others’ records.</li>
-                    <li>You use organization-wide sharing settings to lock down your data to the most restrictive level, and then use the other record-level security and sharing tools to selectively give access to other users.</li>
-                </ul>
-            </li>
-            <li>Role Hierarchy
-                <ul>
-                    <li>The role hierarchy ensures that managers always have access to the same data as their employees, regardless of the organization-wide default settings.</li>
-                    <li>Role hierarchies don't have to match your organization chart exactly. Instead, each role in the hierarchy should represent a level of data access that a user or group of users needs.</li>
-                </ul>
-            </li>
-            <li>Public Groups
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
-            <li>Ownership-based Sharing Rules
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
-            <li>Criteria-based Sharing Rules
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
-            <li>Manual Sharing
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
-            <li>Teams
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
-            <li>Territory Hierarchy
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
-            <li>Account Territory Sharing Rules
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
-            <li>Programmatic Sharing
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
-            <li>Implicit Sharing
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
-        </ol>
+                </ol>
+                <h3>Components</h3>
+                <img src="images/sharing overview.png" />
+                <ol>
+                    <li>
+                        Profiles and Permission Sets
+                        <ul>
+                            <li>
+                                Object level security
+                            </li>
+                            <li>
+                                CRUD
+                            </li>
+                            <li>
+                                FLS
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Record Ownership and Queues
+                        <ul>
+                            <li>
+                                Every record must be owned by a single user or a queue.
+                            </li>
+                            <li>
+                                The owner has access to the record, based on the Object Settings for the owner’s profile.
+                            </li>
+                            <li>
+                                Queues help you prioritize, distribute, and assign records to teams who share workloads.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Organization-Wide Defaults
+                        <ul>
+                            <li>
+                                Organization-wide sharing settings specify the default level of access users have to each others’ records.
+                            </li>
+                            <li>
+                                You use organization-wide sharing settings to lock down your data to the most restrictive level, and then use the other record-level security and sharing tools to selectively give access to other users.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Role Hierarchy
+                        <ul>
+                            <li>
+                                The role hierarchy ensures that managers always have access to the same data as their employees, regardless of the organization-wide default settings.
+                            </li>
+                            <li>
+                                Role hierarchies don't have to match your organization chart exactly. Instead, each role in the hierarchy should represent a level of data access that a user or group of users needs.
+                            </li>
+                            <li>
+                                Use Cases for Role hierarchy:
+                                <ul>
+                                    <li>
+                                        <u>Management access</u> – the ability for managers to be able to see and do whatever their subordinates can see and do.
+                                    </li>
+                                    <li>
+                                        <u>Management reporting</u> – the ability for reporting to roll up in a hierarchical fashion so that anyone higher in the hierarchy sees more data than those below them.
+                                    </li>
+                                    <li>
+                                        <u>Segregation between organizational branches</u> – different business units don’t need to see each other’s data; having a hierarchy in which you can define separate branches allows you to segregate visibility within business units, while still rolling visibility up to the executive levels above those units.
+                                    </li>
+                                    <li>
+                                        <u>Segregation within a role</u> – in many organizations/applications, people who all play the same role should not necessarily see each other’s data. Having hierarchical roles allows you to define a “leaf” node in which all data is essentially private, and still roll that data up to a parent role that can see all.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Public Groups
+                        <ul>
+                            <li>
+                                A public group (not Chatter group) is a collection of individual users, roles, territories, and so on, that all have a function in common.
+                            </li>
+                            <li>
+                                Public groups can consist of:
+                                <ul>
+                                    <li>
+                                        Users
+                                    </li>
+                                    <li>
+                                        Customer Portal Users
+                                    </li>
+                                    <li>
+                                        Partner Users
+                                    </li>
+                                    <li>
+                                        Roles
+                                    </li>
+                                    <li>
+                                        Roles and Internal Subordinates
+                                    </li>
+                                    <li>
+                                        Roles, Internal and Portal Subordinates
+                                    </li>
+                                    <li>
+                                        Portal Roles
+                                    </li>
+                                    <li>
+                                        Portal Roles and Subordinates
+                                    </li>
+                                    <li>
+                                        Territories
+                                    </li>
+                                    <li>
+                                        Territories and Subordinates
+                                    </li>
+                                    <li>
+                                        Other public groups (nesting)
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Public Groups Use Cases:
+                                <ul>
+                                    <li>
+                                        When you need to provide access to an arbitrary group of people, you create a public group to collect them, and then use other sharing tools to give the group the necessary access. Group membership alone doesn't provide data access.
+                                    </li>
+                                    <li>
+                                        Groups can also be nested inside each other, therefore, allowing a nested group to gain the same access as the group in which it is contained. This allows the creation of smaller, ad-hoc hierarchies that don’t necessarily interact with the role or territory hierarchies. If Group A is a member of Group B, then the members of Group A will have access to data shared to Group B at the same access level as the members of Group B.
+                                    </li>
+                                    <li>
+                                        Groups also have the ability to protect data shared in the group from being made accessible to people in the role hierarchy above the group members. This (and dealing with the access of record owners and their management hierarchy) allows the creation of groups in which very highly confidential information can be shared—the data will be accessible ONLY to group members, and nobody else in the organization. This is accomplished by using the Grant Access Using Hierarchies setting.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Ownership-based Sharing Rules
+                        <ul>
+                            <li>
+                                Ownership-based sharing rules allow for exceptions to organization-wide default settings and the role hierarchy that give additional users access to records they don’t own.
+                            </li>
+                            <li>Ownership-based Sharing Rule Use Cases:
+                                <ul>
+                                    <li>
+                                        Role-based matrix management or overlay situations: a person in Service needs to be able to see some Sales data, but they live in different branches of the hierarchy, so you can create a rule that shares data between roles on different branches.
+                                    </li>
+                                    <li>
+                                        To provide data access to peers who hold the same role/territory. (Lateral)
+                                    </li>
+                                    <li>
+                                        To provide data access to other groupings of users (public groups, portal. roles, territories). The members of the groupings who own the records can be shared with the members of other groupings.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Criteria-based Sharing Rules
+                        <ul>
+                            <li>
+                                Criteria-based sharing rules provide access to records based on the record’s field values (criteria). If the criteria are met (one or many field values), then a share record is created for the rule. Record ownership is not a consideration.
+                            </li>
+                            <li>
+                                Criteria-based Sharing Rule Use Case
+                                <ul>
+                                    <li>
+                                        To provide data access to users or groups based on the value of a field on the record.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Manual Sharing
+                        <ul>
+                            <li>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Teams
+                        <ul>
+                            <li>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Territory Hierarchy
+                        <ul>
+                            <li>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Account Territory Sharing Rules
+                        <ul>
+                            <li>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Programmatic Sharing
+                        <ul>
+                            <li>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Implicit Sharing
+                        <ul>
+                            <li>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
     </div>
 </body>
 
