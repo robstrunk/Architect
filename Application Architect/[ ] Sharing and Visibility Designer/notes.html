@@ -30,13 +30,13 @@
                         Organization-wide defaults are the <b>only</b> way to restrict user access to a record.
                     </li>
                     <li>
-                        Contact ownership-based sharing rules don't apply to private contacts.
+                        Contact ownership-based <b>sharing rules don't apply</b> to private contacts.
                     </li>
                     <li>
                         Only manual share records can be created on standard objects. (Cannot use Apex sharing reasons, but Manual shares can be created with Apex)
                     </li>
                     <li>
-                    	The team object is not a first-class object. You can't create custom fields, validations rules, or triggers for teams.
+                        The team object is not a first-class object. You can't create custom fields, validations rules, or triggers for teams.
                     </li>
                 </ol>
                 <h3>Best Practices</h3>
@@ -80,6 +80,11 @@
                                 <b>Q:</b> On page 3 under the Role Hierarchy section, paragraph 6 mentions Overlays. What is an overlay?
                                 <br/>
                                 <b>A:</b> ex. A person in Service needs to be able to see some Sales data, but they live in different branches of the hierarchy.
+                            </li>
+                            <li>
+                                <b>Q:</b> Multiple owners of an account?
+                                <br/>
+                                <b>A:</b>
                             </li>
                         </ul>
                     </li>
@@ -344,21 +349,21 @@
                                 If you create team members programmatically, you have to manage both the team record and associated share record. There is only one team per record (Account, Opportunity or Case). If multiple teams are needed, depending on your specific needs consider territory management or programmatic sharing.
                             </li>
                             <li>
-                            	Teams (Account and Opportunity) Use Cases:
-                            	<ul>
-                            		<li>
-                            			
-                            		</li>
-                            		<li>
-                            			
-                            		</li>
-                            		<li>
-                            			Multiple owners of an account can be managed by the account team.
-                            		</li>
-                            		<li>
-                            		A single group of users (team) require either read-only or read/write access to an opportunity record. (Opportunity Team)
-                            		</li>
-                            	</ul>
+                                Teams (Account and Opportunity) Use Cases:
+                                <ul>
+                                    <li>
+                                        To provide the user with the ability to give access (read-only or read/write) to a single group of users (the team).
+                                    </li>
+                                    <li>
+                                        If teams are managed externally, say through an external commission or territory management system, then integration can be used to manage the account team. There are cases when territory management in an external system can align to a team solution within Salesforce.
+                                    </li>
+                                    <li>
+                                        Multiple owners of an account can be managed by the account team.
+                                    </li>
+                                    <li>
+                                        A single group of users (team) require either read-only or read/write access to an opportunity record. (Opportunity Team)
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
