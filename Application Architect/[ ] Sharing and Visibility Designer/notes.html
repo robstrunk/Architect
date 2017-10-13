@@ -32,6 +32,12 @@
                     <li>
                         Contact ownership-based sharing rules don't apply to private contacts.
                     </li>
+                    <li>
+                        Only manual share records can be created on standard objects. (Cannot use Apex sharing reasons, but Manual shares can be created with Apex)
+                    </li>
+                    <li>
+                    	The team object is not a first-class object. You can't create custom fields, validations rules, or triggers for teams.
+                    </li>
                 </ol>
                 <h3>Best Practices</h3>
                 <ol>
@@ -296,6 +302,20 @@
                         Manual Sharing
                         <ul>
                             <li>
+                                Sometimes it’s impossible to define a consistent group of users who need access to a particular set of records. In those situations, record owners can use manual sharing to give read and edit permissions to users who would not have access to the record any other way. Although manual sharing isn’t automated like organization-wide sharing settings, role hierarchies, or sharing rules, it gives record owners the flexibility to share particular records with users that need to see them.
+                            </li>
+                            <li>
+                                Manual sharing is removed when the record owner changes or when the sharing access granted doesn't grant additional access beyond the object's organization-wide sharing default access level. This also applies to manual shares created programmatically.
+                            </li>
+                            <li>
+                                All share records (standard and custom objects) with a row cause set to manual share can be edited and deleted by the Share button on the object's page layout, even if the share record was created programmatically.
+                            </li>
+                            <li>Manual Sharing Use Case
+                                <ul>
+                                    <li>
+                                        To provide the user with the ability to give access (read only or read/write) to the current record to other users, groups, or roles.
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -303,6 +323,42 @@
                         Teams
                         <ul>
                             <li>
+                                A team is a group of users that work together on an account, sales opportunity, or case.
+                            </li>
+                            <li>
+                                Record owners can build a team for each record that they own. The record owner adds team members and specifies the access level each team member has to the record.
+                            </li>
+                            <li>
+                                Some team members can have read-only access, while others have read/write.
+                            </li>
+                            <li>
+                                Only owners, people higher in the hierarchy, and administrators can add team members and provide more access to the member.
+                            </li>
+                            <li>
+                                A team member with read/write access can add another member who already has access to the record with which the team is associated. The team member can't provide them additional access.
+                            </li>
+                            <li>
+                                Creating a team member in the app creates two records: a team record and an associated share record.
+                            </li>
+                            <li>
+                                If you create team members programmatically, you have to manage both the team record and associated share record. There is only one team per record (Account, Opportunity or Case). If multiple teams are needed, depending on your specific needs consider territory management or programmatic sharing.
+                            </li>
+                            <li>
+                            	Teams (Account and Opportunity) Use Cases:
+                            	<ul>
+                            		<li>
+                            			
+                            		</li>
+                            		<li>
+                            			
+                            		</li>
+                            		<li>
+                            			Multiple owners of an account can be managed by the account team.
+                            		</li>
+                            		<li>
+                            		A single group of users (team) require either read-only or read/write access to an opportunity record. (Opportunity Team)
+                            		</li>
+                            	</ul>
                             </li>
                         </ul>
                     </li>
