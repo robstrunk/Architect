@@ -2,6 +2,8 @@
 <html lang="en_US">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../utilities/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -12,7 +14,9 @@
             <div class="card-block bg-faded">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h1 class="card-title">Sharing and Visibility Designer Notes</h1>
+                        <h1 class="card-title">
+                            Sharing and Visibility Designer Notes
+                        </h1>
                     </div>
                     <div class="col">
                         <a href="http://certification.salesforce.com/open-a-case" title="Request a Training Org" target="_blank">
@@ -21,7 +25,9 @@
                     </div>
                 </div>
                 <hr style="border: 0;border-top: 3px double #8c8c8c;" />
-                <h3>Key Terms, Phrases, or Ideas</h3>
+                <h3>
+                    Key Terms, Phrases, or Ideas
+                </h3>
                 <ol class="no-nest">
                     <li>
                         Data access begins with a user.
@@ -55,7 +61,9 @@
                         The only users that can add, edit or delete sharing records created by Apex managed sharing are users with the "Modify All Data" permission.
                     </li>
                 </ol>
-                <h3>Best Practices</h3>
+                <h3>
+                    Best Practices
+                </h3>
                 <ol>
                     <li>
                         If a single user owns more than 10,000 records
@@ -90,7 +98,9 @@
                         Keep the territory hierarchy to no more than 10 levels of branches in the hierarchy.
                     </li>
                 </ol>
-                <h3>Questions / Clarity Needed</h3>
+                <h3>
+                    Questions / Clarity Needed
+                </h3>
                 <ol>
                     <li>
                         A Guide to Sharing Architecture
@@ -109,7 +119,9 @@
                     </li>
                 </ol>
                 <br />
-                <h3>Follow ups or Proofs Needed</h3>
+                <h3>
+                    Follow ups or Proofs Needed                
+                </h3>
                 <ol>
                     <li>
                         A Guide to Sharing Architecture
@@ -131,7 +143,9 @@
                         </ul>
                     </li>
                 </ol>
-                <h3>External Sources</h3>
+                <h3>
+                    External Sources
+                </h3>
                 <ol>
                     <li>
                         <a href="https://developer.salesforce.com/blogs/engineering/2013/10/behind-the-scenes-of-record-ownership-in-salesforce.html" target="_blank">
@@ -160,9 +174,15 @@
                     </li>
                 </ol>
                 <br />
-                <h2><a href="files/sharing_architecture.pdf" download>A Guide to Sharing Architecture</a></h2>
+                <h2>
+                    <a href="files/sharing_architecture.pdf" download>
+                        A Guide to Sharing Architecture
+                    </a>
+                </h2>
                 <hr/>
-                <h3>Data Access Mechanisms</h3>
+                <h3>
+                    Data Access Mechanisms
+                </h3>
                 <ol>
                     <li>
                         License Types
@@ -206,7 +226,9 @@
                         </ul>
                     </li>
                 </ol>
-                <h3>Components</h3>
+                <h3>
+                    Components
+                </h3>
                 <img src="images/sharing overview.png" />
                 <ol>
                     <li>
@@ -342,7 +364,8 @@
                             <li>
                                 Ownership-based sharing rules allow for exceptions to organization-wide default settings and the role hierarchy that give additional users access to records they don’t own.
                             </li>
-                            <li>Ownership-based Sharing Rule Use Cases:
+                            <li>
+                                Ownership-based Sharing Rule Use Cases:
                                 <ul>
                                     <li>
                                         Role-based matrix management or overlay situations: a person in Service needs to be able to see some Sales data, but they live in different branches of the hierarchy, so you can create a rule that shares data between roles on different branches.
@@ -385,7 +408,8 @@
                             <li>
                                 All share records (standard and custom objects) with a row cause set to manual share can be edited and deleted by the Share button on the object's page layout, even if the share record was created programmatically.
                             </li>
-                            <li>Manual Sharing Use Case
+                            <li>
+                                Manual Sharing Use Case
                                 <ul>
                                     <li>
                                         To provide the user with the ability to give access (read only or read/write) to the current record to other users, groups, or roles.
@@ -449,7 +473,8 @@
                             <li>
                                 If the assignment rules for a territory are changed, any Account Territory sharing rules using that territory as the source will be recalculated. Likewise, if the membership of a territory changes, any ownership-based sharing rules that use the territory as the source will be recalculated.
                             </li>
-                            <li>Territory Management Use Cases
+                            <li>
+                                Territory Management Use Cases
                                 <ul>
                                     <li>
                                         Multiple groups of people (multiple teams) require either read-only or read/write access to accounts
