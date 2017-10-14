@@ -12,10 +12,11 @@
             <div class="card-block bg-faded">
                 <h1 class="card-title">Sharing and Visibility Designer Notes</h1>
                 <hr style="border: 0;border-top: 3px double #8c8c8c;" />
-                <h3>Key Terms, Phrases, and Ideas</h3>
-                <ol>
+                <h3>Key Terms, Phrases, or Ideas</h3>
+                <ol class="no-nest">
                     <li>
                         Data access begins with a user.
+                        <emoji-rain active></emoji-rain>
                     </li>
                     <li>
                         Record ownership and full access are synonymous and interchangeable and provide the user with the highest level of access to a record.
@@ -37,6 +38,9 @@
                     </li>
                     <li>
                         The team object is not a first-class object. You can't create custom fields, validations rules, or triggers for teams.
+                    </li>
+                    <li>
+                        Territories exist only on Account, Opportunity and master/detail children of Accounts and Opportunities.
                     </li>
                 </ol>
                 <h3>Best Practices</h3>
@@ -70,6 +74,9 @@
                     <li>
                         Keep the number of criteria-sharing rules per object to 50; however, this can be increased by Salesforce.
                     </li>
+                    <li>
+                        Keep the territory hierarchy to no more than 10 levels of branches in the hierarchy.
+                    </li>
                 </ol>
                 <h3>Questions / Clarity Needed</h3>
                 <ol>
@@ -90,18 +97,44 @@
                     </li>
                 </ol>
                 <br />
-                <h3>Scenarios to Proof</h3>
+                <h3>Follow ups or Proofs Needed</h3>
                 <ol>
                     <li>
                         A Guide to Sharing Architecture
                         <ul>
                             <li>
-                                A Guide to Sharing Architecture states that a someone higher in the role hierarchy can see <b>and do</b> anything someone lower in the hierarchy can see and do.  I am curious if that statement holds true when the manager (user higher in the role hierarchy)  has a profile with more restrictive object access (crud) or fls for the object and fields.  I suspect the manager will not inherit the additional object access or fls, resulting in the statement being false.
+                                A Guide to Sharing Architecture states that manual shares can be viewed and edited and deleted via the "Sharing" button on the record. I want to test whether or not share records for Apex sharing reasons can be edited or removed from that button also.
                             </li>
                             <li>
-                            	A Guide to Sharing Architecture states that manual shares can be viewed and edited and deleted via the "Sharing" button on the reocord.  I wasnt to test whether or not share records for Apex sharing reasons can be edited or removed from that button also.  
+                                A Guide to Sharing Architecture states that a potential use case for role hierarchy is to ensure managers can see and do everything that their subordinates can see and do. I want to test if that use case can be blocked by the manager's profile if it is more restrictive in a CRUD or FLS sense. e.x. If manager's profile has read only on account and subordinates profile has read/write, will the inherited access allow the manager to read/write. Not a realistic scenario but a good scenario to test the access that is inherited. I suspect the manager's profile will ensure the manager cannot edit, but am curious because when two sharing/access rules are compared, the least restrictive wins.
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        General Salesforce Knowledge
+                        <ul>
+                            <li>
+                                Review Territory Management
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <h3>External Sources</h3>
+                <ol>
+                    <li>
+                        <a href="https://developer.salesforce.com/blogs/engineering/2013/10/behind-the-scenes-of-record-ownership-in-salesforce.html" target="_blank">
+                            Behind the scenes of record ownership
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://developer.salesforce.com/page/Using_Apex_Managed_Sharing_to_Create_Custom_Record_Sharing_Logic" target="_blank">
+                            Using Apex Managed Sharing to Create Custom Record Sharing Logic
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://quizlet.com/222316220/salesforce-certified-sharing-and-visibility-designer-all-combined-flash-cards/" target="_blank">
+                            Quizlet Flashcards (Quality Unknown)
+                        </a>
                     </li>
                 </ol>
                 <br />
@@ -266,7 +299,7 @@
                                 </ul>
                             </li>
                             <li>
-                                Public Groups Use Cases:
+                                Public Group Use Cases:
                                 <ul>
                                     <li>
                                         When you need to provide access to an arbitrary group of people, you create a public group to collect them, and then use other sharing tools to give the group the necessary access. Group membership alone doesn't provide data access.
@@ -355,7 +388,7 @@
                                 Only owners, people higher in the hierarchy, and administrators can add team members and provide more access to the member.
                             </li>
                             <li>
-                                A team member with read/write access can add another member who already has access to the record with which the team is associated. The team member can't provide them additional access.
+                                A team member with read/write access can add another member who already has access to the record with which the team is associated. <b>The team member can't provide them additional access.</b>
                             </li>
                             <li>
                                 Creating a team member in the app creates two records: a team record and an associated share record.
@@ -386,6 +419,26 @@
                         Territory Hierarchy
                         <ul>
                             <li>
+                                The territory hierarchy is a single dimensional, additional hierarchy which can be structured by business units or any kind of segmentation in a hierarchical structure.
+                            </li>
+                            <li>
+                                When territory management is enabled you must manage both the role hierarchy and territory hierarchy.
+                            </li>
+                            <li>
+                                If the assignment rules for a territory are changed, any Account Territory sharing rules using that territory as the source will be recalculated. Likewise, if the membership of a territory changes, any ownership-based sharing rules that use the territory as the source will be recalculated.
+                            </li>
+                            <li>Territory Management Use Cases
+                                <ul>
+                                    <li>
+                                        Multiple groups of people (multiple teams) require either read-only or read/write access to accounts
+                                    </li>
+                                    <li>
+                                        An additional hierarchical structure (different from the role hierarchy) is needed.
+                                    </li>
+                                    <li>
+                                        A single user needs to hold multiple levels in the hierarchy.
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -393,6 +446,15 @@
                         Account Territory Sharing Rules
                         <ul>
                             <li>
+                                Account territory sharing rules become available only when Territory Management has been enabled for an organization. These sharing rules provide access to Account records that have been stamped with the Territory defined in the rule.
+                            </li>
+                            <li>
+                                Account Territory Sharing Rule Use Case
+                                <ul>
+                                    <li>
+                                        To provide data access to accounts within a territory (not based on ownership) to a grouping of users. Applies only to accounts and when territory management is enabled.
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -400,6 +462,10 @@
                         Programmatic Sharing
                         <ul>
                             <li>
+                                Programmatic sharing (formally Apex-managed sharing) allows you to use code (Apex or other) to build sophisticated and dynamic sharing settings when a data access requirement cannot be met by any other means.
+                            </li>
+                            <li>
+                                If you create a share record programmatically, and the out-of-box row cause (manual share) is used, then you can maintain this share record with the Share button in the app. The share record is subject to all rules with the manual share row cause such as deletion upon owner transfer.
                             </li>
                         </ul>
                     </li>

@@ -1,12 +1,24 @@
 img {
-	display: block;
-	margin:0 auto !important;
+    display: block;
+    margin: 0 auto !important;
 }
 
 h3 {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 h2 {
-	color: #35c3f2;
+    color: #35c3f2;
+}
+
+ol>li {
+    margin-top: 15px;
+}
+
+li {
+    margin-top: 5px;
+}
+
+.no-nest>li {
+    margin-top: 5px;
 }
